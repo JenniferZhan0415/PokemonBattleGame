@@ -28,5 +28,7 @@ Technologies Used
 Developer: Jennifer Zhan
 
 Acknowledgements
+
 Special thanks to the education team @BrainStation!
+
 Special thanks to the developers of the PokeAPI for providing an excellent resource for Pokemon data and to all the online communities and resources that assisted in the development of this project! 
