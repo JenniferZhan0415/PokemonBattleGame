@@ -1,0 +1,311 @@
+$primary-color: #ffcb05;
+$secondary-color: #3b4cca;
+$button-hover-color: darken($primary-color, 10%);
+$background-color: #f5f5f5;
+$font-family: "Pokemon", sans-serif;
+
+body {
+    font-family: "Press Start 2P", cursive;
+    text-align: center;
+    margin-top: 50px;
+    background-color: $background-color;
+}
+
+#pokemon-select {
+    margin-bottom: 20px;
+    label {
+        font-size: 1.5rem;
+        color: $secondary-color;
+    }
+    select {
+        font-size: 1rem;
+        padding: 5px;
+        border-radius: 5px;
+        border: 2px solid $secondary-color;
+        &:focus {
+            outline: none;
+            border-color: $primary-color;
+        }
+    }
+    button {
+        font-size: 1rem;
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: $primary-color;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+            background-color: $button-hover-color;
+        }
+    }
+}
+
+.pokemon-card {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid $secondary-color;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px #aaa;
+    width: 10rem;
+    height: 20rem;
+    vertical-align: top;
+    transition: transform 0.1s ease-in-out;
+    background-color: lighten($secondary-color, 40%);
+    color: $secondary-color;
+    img {
+        width: 10rem;
+        height: 10rem;
+    }
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.highlight {
+    border: 2px solid gold;
+    box-shadow: 0 0 10px gold;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+.shake {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+
+.health-bar {
+    width: 100%;
+    background-color: lightgreen;
+    border: 1px solid green;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+    .health-bar-inner {
+        height: 20px;
+        background-color: green;
+        transition: width 0.3s ease;
+    }
+}
+
+#battle-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.battle-result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: $secondary-color;
+}
+
+#battle-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.battle-button {
+    display: none;
+    margin: 0 20px;
+    background-color: $primary-color;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+        background-color: $button-hover-color;
+    }
+}
+
+.battle-button--active {
+    display: inline-block;
+}
+
+.restart-button {
+    background: white;
+    border: 1px solid $secondary-color;
+    color: $secondary-color;
+    cursor: pointer;
+    margin: 0 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    &:hover {
+        background-color: lighten($secondary-color, 40%);
+    }
+}
+
+.restart-button--active {
+    display: inline-block;
+}
+
+// body {
+//     font-family: Arial, sans-serif;
+//     text-align: center;
+//     margin-top: 50px;
+// }
+
+// #pokemon-select {
+//     margin-bottom: 20px;
+// }
+
+// .pokemon-card {
+//     display: inline-block;
+//     margin: 20px;
+//     padding: 20px;
+//     border: 1px solid #ccc;
+//     border-radius: 10px;
+//     box-shadow: 2px 2px 10px #aaa;
+//     width: 10rem;
+//     height: 20rem;
+//     vertical-align: top;
+//     transition: transform 0.1s ease-in-out;
+// }
+
+// .pokemon-card img {
+//     width: 10rem;
+//     height: 10rem;
+// }
+
+// .highlight {
+//     border: 2px solid gold;
+//     box-shadow: 0 0 10px gold;
+// }
+
+// .grayscale {
+//     filter: grayscale(100%);
+// }
+
+// @keyframes shake {
+//     0% {
+//         transform: translate(1px, 1px) rotate(0deg);
+//     }
+//     10% {
+//         transform: translate(-1px, -2px) rotate(-1deg);
+//     }
+//     20% {
+//         transform: translate(-3px, 0px) rotate(1deg);
+//     }
+//     30% {
+//         transform: translate(3px, 2px) rotate(0deg);
+//     }
+//     40% {
+//         transform: translate(1px, -1px) rotate(1deg);
+//     }
+//     50% {
+//         transform: translate(-1px, 2px) rotate(-1deg);
+//     }
+//     60% {
+//         transform: translate(-3px, 1px) rotate(0deg);
+//     }
+//     70% {
+//         transform: translate(3px, 1px) rotate(-1deg);
+//     }
+//     80% {
+//         transform: translate(-1px, -1px) rotate(1deg);
+//     }
+//     90% {
+//         transform: translate(1px, 2px) rotate(0deg);
+//     }
+//     100% {
+//         transform: translate(1px, -2px) rotate(-1deg);
+//     }
+// }
+// .shake {
+//     animation: shake 0.5s;
+//     animation-iteration-count: infinite;
+// }
+
+// .health-bar {
+//     width: 100%;
+//     background-color: lightgreen;
+//     border: 1px solid green;
+//     border-radius: 5px;
+//     margin-top: 10px;
+//     overflow: hidden;
+// }
+// .health-bar-inner {
+//     height: 20px;
+//     background-color: green;
+//     transition: width 0.3s ease;
+// }
+
+// #battle-area {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     margin-top: 20px;
+// }
+
+// .battle-result {
+//     margin-top: 20px;
+// }
+
+// #battle-container {
+//     display: flex;
+//     flex-direction: column;
+// }
+
+// .battle-button {
+//     display: none;
+//     margin: 0 20px;
+// }
+
+// .battle-button--active {
+//     display: none;
+//     margin: 0 20px;
+// }
+
+// .restart-button {
+//     background: white;
+//     border: none;
+//     color: white;
+//     cursor: none;
+//     margin: 0 20px;
+// }
+// .restart-button--active {
+//     border: 1px solid black;
+//     color: black;
+//     cursor: pointer;
+// }

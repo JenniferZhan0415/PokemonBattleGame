@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+    <title>Pokemon Battle Game</title>
+    <style></style>
+  </head>
+
+  <body>
+    <main class="main">
+      <h1 class="main__title">Pokemon Battle Game</h1>
+      <section class="pokemon">
+        <div class="pokemon__selection" id="pokemon-select">
+          <label class="pokemon__label" for="pokemon"
+            >Choose your Pokemon:</label
+          >
+          <select class="pokemon__option" id="pokemon">
+            <!-- Options will be populated by JavaScript -->
+          </select>
+        </div>
+
+        <div id="pokemon-select">
+          <button onclick="selectUserPokemon()">Select Your Pokemon</button>
+          <button onclick="selectEnemyPokemon()">Select Enemy Pokemon</button>
+        </div>
+      </section>
+
+      <section id="battle-area">
+        <div id="user-pokemon-container"></div>
+        <div id="battle-container">
+          <button class="battle-button" onclick="startBattle()">
+            Start Battle
+          </button>
+          <div class="battle-result"></div>
+          <button class="restart-button">Restart Battle</button>
+        </div>
+        <div id="enemy-pokemon-container"></div>
+      </section>
+    </main>
+  </body>
+</html>
