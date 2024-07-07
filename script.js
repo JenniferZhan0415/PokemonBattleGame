@@ -85,9 +85,7 @@ function calculateBattle(pokemon1, pokemon2) {
   ).base_stat;
 
   // first round
-  console.log(`Enemy's hp before the attach: ${hp2Max}`);
   const hp2 = hp2Max - attack1;
-  console.log(`Enemy's hp after the attach: ${hp2}`);
 
   // updateHealthBar("user-pokemon-container", hp1);
   updateHealthBar("enemy-pokemon-container", hp2, hp2Max);
@@ -110,16 +108,18 @@ function calculateBattle(pokemon1, pokemon2) {
     setTimeout(() => enemyCard.classList.remove("shake"), 1000);
 
     // Second round
-    console.log(`User's hp before the attach: ${hp1Max}`);
     const hp1 = hp1Max - attack2;
-    console.log(`User's hp after the attach: ${hp1}`);
 
     // update the final health bar
     // updateHealthBar("enemy-pokemon-container", hp2);
     updateHealthBar("user-pokemon-container", hp1, hp1Max);
-
+    console.log(`hp1: ${hp1} hp2: ${hp2}`);
     // check win or loss
     if (hp1 > hp2) {
+      // user wins
+      document
+        .getElementById("enemy-pokemon-container")
+        .querySelector(".health-bar-inner").style.width = "0%";
       endBattle(
         "user-pokemon-container",
         "enemy-pokemon-container",
@@ -127,6 +127,10 @@ function calculateBattle(pokemon1, pokemon2) {
         pokemon2
       );
     } else if (hp1 < hp2) {
+      // enemy wins
+      document
+        .getElementById("user-pokemon-container")
+        .querySelector(".health-bar-inner").style.width = "0%";
       endBattle(
         "enemy-pokemon-container",
         "user-pokemon-container",
@@ -146,8 +150,9 @@ function updateHealthBar(containerId, hp, maxHp) {
   const healthBar = document
     .getElementById(containerId)
     .querySelector(".health-bar-inner");
-  const normalHp = Math.max(0, hp);
-  const hpPercent = (normalHp / maxHp) * 100;
+  const validMaxHp = Math.max(0, maxHp);
+  const validHp = Math.min(Math.max(1, hp), validMaxHp);
+  const hpPercent = (validHp / validMaxHp) * 100;
   healthBar.style.width = `${hpPercent}%`;
 }
 
